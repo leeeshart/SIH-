@@ -324,25 +324,29 @@ Using a TF-IDF + Logistic Regression baseline:
 
 A pilot test was performed on 30 FIR images:
 
-30/30 produced non-empty OCR output
-Mean extracted text: approximately 1,758 characters/document
-Median extracted text: approximately 1,745 characters/document
-Structural Verification
+- 30/30 produced non-empty OCR output
+- Mean extracted text: approximately 1,758 characters/document
+- Median extracted text: approximately 1,745 characters/document
+
+
+### Structural Verification
 
 The Charge Sheet verification prototype detected:
 
-8/8 required elements on valid samples
-A deliberately damaged document triggered NEEDS REVIEW
+- 8/8 required elements on valid samples
+- A deliberately damaged document triggered NEEDS REVIEW
 
 These results come from a small proof-of-concept dataset. They demonstrate that the pipeline works end-to-end and should not be interpreted as production-level accuracy.
 
-Dataset & Privacy
+## Dataset & Privacy
 
 The project uses public/reference material and synthetic data for prototyping.
 
 Sensitive documents and personally identifiable information are not intended to be committed to this repository.
 
 The AI/ML data directory is organized as:
+
+```text
 
 ai_ml/data/
 ├── raw/              # Local/restricted datasets
@@ -351,40 +355,48 @@ ai_ml/data/
 ├── manifests/        # Dataset metadata and provenance
 └── synthetic/        # Locally generated synthetic documents
 
+
+```
+
+
 Raw datasets, processed datasets, synthetic generated documents, and trained model files are excluded from version control where appropriate.
 
 For real police or legal documents, authorization, privacy requirements, and data licensing must be established before using them for training or evaluation.
 
-Current Limitations
+## Current Limitations
 
 This is currently a proof-of-concept implementation.
 
-Some important limitations are:
+### Some important limitations are:
 
-Small training and evaluation dataset
-Synthetic documents do not fully represent real operational documents
-OCR performance can vary depending on scan and image quality
-Police document formats can vary across jurisdictions and time
-Similar templates can introduce dataset leakage
-Confidence scores alone are not sufficient for reliable open-set document rejection
-Structural verification is not forensic document authentication
-Further evaluation on diverse and authorized real-world documents is required
-Future Improvements
+- Small training and evaluation dataset
+- Synthetic documents do not fully represent real operational documents
+- OCR performance can vary depending on scan and image quality
+- Police document formats can vary across jurisdictions and time
+- Similar templates can introduce dataset leakage
+- Confidence scores alone are not sufficient for reliable open-set document rejection
+- Structural verification is not forensic document authentication
+- Further evaluation on diverse and authorized real-world documents is required
+
+
+## Future Improvements
 
 Planned or possible improvements include:
 
-Larger and more diverse datasets
-Improved OCR and handwriting recognition
-Layout-aware document models
-Multimodal classification using text, layout, and visual features
-More reliable open-set document detection
-Visual and structural anomaly detection
-Document version comparison
-Change highlighting between document versions
-Human-in-the-loop review for uncertain AI results
-Integration with the complete frontend and backend
-Evaluation on authorized real-world documents
-Disclaimer
+- Larger and more diverse datasets
+- Improved OCR and handwriting recognition
+- Layout-aware document models
+- Multimodal classification using text, layout, and visual features
+- More reliable open-set document detection
+- Visual and structural anomaly detection
+- Document version comparison
+- Change highlighting between document versions
+- Human-in-the-loop review for uncertain AI results
+- Integration with the complete frontend and backend
+- Evaluation on authorized real-world documents
+
+  
+## Disclaimer
 
 This project is a research and hackathon prototype.
 
@@ -392,5 +404,36 @@ The AI system is designed to assist authorized users with document classificatio
 
 The system does not claim that a document is legally authentic or fraudulent based solely on AI output.
 
+
+## References
+
+1. **Smart India Hackathon 2026 — Problem Statement 26190**  
+   Secure Digital Document Management System for Legal and Investigation Documents, Ministry of Home Affairs.  
+   https://sih.gov.in/
+
+2. **Chakraborty, S., Harit, G., & Ghosh, S. (2023).**  
+   *TransDocAnalyser: A Framework for Offline Semi-structured Handwritten Document Analysis in the Legal Domain.*  
+   Proceedings of the 17th International Conference on Document Analysis and Recognition (ICDAR).  
+   https://www.researchgate.net/publication/373227561_TransDocAnalyser_A_Framework_for_Semi-structured_Offline_Handwritten_Documents_Analysis_with_an_Application_to_Legal_Domain
+
+3. **FIR_Dataset_ICDAR2023 — LegalDocumentProcessing.**  
+   Indian FIR document dataset containing handwritten and printed documents with field-level annotations.  
+   https://github.com/LegalDocumentProcessing/FIR_Dataset_ICDAR2023
+
+4. **Puducherry Police — FORM IF5.**  
+   Official police form for Final Form / Report.  
+   https://police.py.gov.in/Police%20manual/Forms%20pdf/FORM-%20IF5.pdf
+
+5. **Puducherry Police — Police Manual Volume III: Forms.**  
+   Official police forms reference, including Integrated Forms IF1–IF7.  
+   https://police.py.gov.in/Police%20manual/Police%20Manual%20Volume%20III%20with%20Forms.htm
+
+6. **Government of Puducherry — BNSS 2023 Notification.**  
+   Notification updating the Final Form / Report reference from Section 173 CrPC to Section 193 BNSS.  
+   https://styandptg.py.gov.in/2024/OCTOBER/EXTRAORDINARYPART-I/139-PART-I%20dated%2021-10-2024.pdf
+
+7. **Maharashtra Police — FORM IF5 under BNSS 2023.**  
+   Official example of the updated IF5 Final Form / Report format.  
+   https://www.mahapolice.gov.in/uploads/d090e8a4ec7bdad9ba2a23d615c4cfc1.pdf
 
 This fits **exactly after the section you already wrote** and keeps the root README as the overview, while the `ai_ml/README.md` remains the technical deep dive.
