@@ -214,7 +214,7 @@ Maintains a tamper-evident record of the hash/history
 
 Audit Logs
  ↓
-Records WHO did WHAT and WHEN\
+Records WHO did WHAT and WHEN
 
 ```
 
@@ -256,10 +256,10 @@ This provides traceability throughout the document lifecycle.
 SIH-/
 │
 ├── frontend/
-│   └── ...
+│   └── not yet in repo
 │
 ├── backend/
-│   └── ...
+│   └── not yet in repo
 │
 ├── ai_ml/
 │   ├── data/
@@ -374,7 +374,6 @@ This is currently a proof-of-concept implementation.
 - OCR performance can vary depending on scan and image quality
 - Police document formats can vary across jurisdictions and time
 - Similar templates can introduce dataset leakage
-- Confidence scores alone are not sufficient for reliable open-set document rejection
 - Structural verification is not forensic document authentication
 - Further evaluation on diverse and authorized real-world documents is required
 
@@ -436,4 +435,4 @@ The system does not claim that a document is legally authentic or fraudulent bas
    Official example of the updated IF5 Final Form / Report format.  
    https://www.mahapolice.gov.in/uploads/d090e8a4ec7bdad9ba2a23d615c4cfc1.pdf
 
-This fits **exactly after the section you already wrote** and keeps the root README as the overview, while the `ai_ml/README.md` remains the technical deep dive.
+
