@@ -111,53 +111,40 @@ def verify_charge_sheet(pdf_path):
 # Main
 # --------------------------------------------------
 
-if len(sys.argv) != 2:
-    print("Usage:")
-    print("python ai_ml/verification/verify_charge_sheet.py <pdf>")
-    sys.exit(1)
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage:")
+        print("python ai_ml/verification/verify_charge_sheet.py <pdf>")
+        sys.exit(1)
 
+    pdf_path = Path(sys.argv[1])
 
-pdf_path = Path(sys.argv[1])
+    if not pdf_path.exists():
+        print(f"File not found: {pdf_path}")
+        sys.exit(1)
 
-if not pdf_path.exists():
-    print(f"File not found: {pdf_path}")
-    sys.exit(1)
+    status, results, passed, total = verify_charge_sheet(pdf_path)
 
+    print("=" * 65)
+    print("CHARGE SHEET STRUCTURAL VERIFICATION")
+    print("=" * 65)
 
-status, results, passed, total = verify_charge_sheet(pdf_path)
+    print(f"\nDocument: {pdf_path.name}")
 
+    print("\nStructural checks:")
+    print("-" * 65)
 
-print("=" * 65)
-print("CHARGE SHEET STRUCTURAL VERIFICATION")
-print("=" * 65)
+    for element, result in results.items():
+        symbol = "✓" if result else "✗"
+        print(f"{symbol} {element.replace('_', ' ').title()}")
 
-print(f"\nDocument: {pdf_path.name}")
+    print("\n" + "-" * 65)
+    print(f"Checks passed: {passed}/{total}")
+    print(f"Verification status: {status}")
 
-print("\nStructural checks:")
-print("-" * 65)
-
-for element, result in results.items():
-
-    symbol = "✓" if result else "✗"
-
+    print("\nNote:")
     print(
-        f"{symbol} {element.replace('_', ' ').title()}"
+        "This verifies structural conformity only. "
+        "It does not determine legal authenticity or whether "
+        "a document is genuine/fake."
     )
-
-
-print("\n" + "-" * 65)
-
-print(
-    f"Checks passed: {passed}/{total}"
-)
-
-print(
-    f"Verification status: {status}"
-)
-
-print("\nNote:")
-print(
-    "This verifies structural conformity only. "
-    "It does not determine legal authenticity or whether "
-    "a document is genuine/fake."
-)
