@@ -28,8 +28,7 @@ Handles document classification (what type of document) and structural verificat
 ## Design notes
 
 - 3-class classification (FIR, Charge Sheet, Witness Statement) — no trained
-  "Other/Unknown" class. Out-of-domain documents are instead caught via low
-  classification confidence, since a synthetic catch-all class would be an incoherent
+  "Other/Unknown" class. Out-of-domain documents are handled as an application-level review outcome; confidence thresholding was evaluated but found insufficient on its own for reliable open-set rejection.
   document type rather than a real fourth category.
 - Verification is a structural-conformity check (presence/absence of required text
   fields), not a visual or forensic authenticity check — it does not claim to determine
