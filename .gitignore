@@ -63,3 +63,4 @@ env/
 Thumbs.db
 .vscode/
 .idea/
+ai_ml/data/synthetic/
